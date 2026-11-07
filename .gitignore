@@ -1,0 +1,46 @@
+# ==============================================================================
+# .gitignore - SPS Project Salmonella AMR
+# ==============================================================================
+
+# Data files (Strict requirement: raw datasets must NEVER be committed to Git!)
+data/
+*.tsv
+*.tsv.gz
+*.csv.gz
+*.tar.gz
+*.zip
+*.fastq*
+*.bam
+*.sam
+
+# Results archives and temporary files
+results/archive_*.tar.gz
+tmp/
+temp/
+*.tmp
+
+# Execution logs
+logs/*.log
+*.log
+
+# Python cache and environments
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+ENV/
+env/
+
+# IDEs and OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+

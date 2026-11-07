@@ -1,0 +1,9 @@
+Dépôt Git du Projet :
+https://github.com/LgnOmar/SPS-Project-001.git
+
+Branche évaluée :
+main
+
+Hash du commit final (à renseigner avant la remise finale) :
+[COMMIT_HASH]
+
