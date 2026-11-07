@@ -1,0 +1,4 @@
+# Run the Salmonella AMR pipeline every Sunday at 02:00.
+# Replace /absolute/path/to/SPS-Project-001 with the repository path.
+# The pipeline output is appended to a date-stamped log file.
+0 2 * * 0 cd /absolute/path/to/SPS-Project-001 && /bin/bash ./run.sh >> "logs/pipeline_$(date +\%Y-\%m-\%d).log" 2>&1
