@@ -11,18 +11,18 @@ Le pipeline a pour objectif d'analyser la prévalence et la co-occurrence des g�
 ---
 
 ## 👥 Composition du Groupe
-- **HECHAM Idriss** (Délégué de groupe)
-- **Bouabdelli Mohamed**
-- **LAGGOUNE Ahmed Amar**
-- **Bouchene Zakaria**
-- **FARTAS Nadir**
+- **LAGGOUNE Ahmed Amar** (Propriétaire du dépôt GitHub / Intégration & Orchestration)
+- **HECHAM Idriss** (Délégué du groupe / Traitement Shell & Rapport)
+- **Bouabdelli Mohamed** (Acquisition & Intégrité des données)
+- **Bouchene Zakaria** (Analyse statistique Python & Visualisation)
+- **FARTAS Nadir** (Tests automatisés, Environnement & Planification)
 
-### Répartition indicative des tâches
-1. **HECHAM Idriss :** Architecture de `run.sh`, gestion des arguments (`getopts`), aide (`-h`), capture des signaux (`trap`) et robustesse (`set -euo pipefail`).
-2. **Bouabdelli Mohamed :** Acquisition des données, calcul et vérification des sommes de contrôle (`sha256sum`), permissions de fichiers (`chmod 444`), et documentation `SOURCES.md`.
-3. **LAGGOUNE Ahmed Amar :** Traitement Shell en tubes Unix (`cut | grep | awk | sort | uniq`) pour le filtrage des isolats et l'extraction des motifs AMR.
-4. **Bouchene Zakaria :** Script Python d'analyse statistique (`argparse`), calcul des métriques, export CSV/JSON et génération des figures graphiques.
-5. **FARTAS Nadir :** Tests automatisés (`pytest`), environnement reproductible (`requirements.txt` / `environment.yml`), configuration cron/timer et journaux horodatés (`logs/`).
+### Répartition officielle des tâches
+1. **LAGGOUNE Ahmed Amar :** Gestion et intégration du dépôt GitHub, revue des Pull Requests, conception du script maître `run.sh`, parsing des options (`getopts`), documentation d'aide (`-h`), gestion des signaux et erreurs (`trap`, `set -euo pipefail`), archivage daté (`tar.gz`), et fonctions réutilisables.
+2. **HECHAM Idriss :** Conception du pipeline Unix (`scripts/filter_motifs.sh`), filtrage par enchaînement de tubes (`cut | grep | awk | sort | uniq`), extraction des motifs de résistance (MDR), et coordination de la rédaction du `rapport.pdf`.
+3. **Bouabdelli Mohamed :** Script d'acquisition des données (`scripts/download_and_verify.sh`), calcul et vérification des sommes de contrôle (`sha256sum`), verrouillage des permissions en lecture seule (`chmod 444`), et tenue de `SOURCES.md`.
+4. **Bouchene Zakaria :** Développement du script Python d'analyse statistique (`scripts/analyze_amr.py`) avec `argparse`, calcul des fréquences de résistance par source et sérovar, génération automatique des graphiques PNG, et export chiffré en CSV/JSON.
+5. **FARTAS Nadir :** Développement de la suite de tests automatisés (`scripts/test_analyze.py` avec `pytest`), configuration des environnements reproductibles (`requirements.txt` / `environment.yml`), écriture et documentation de la tâche planifiée (`cron/crontab.sample`), et gestion des journaux d'exécution horodatés (`logs/`).
 
 ---
 
