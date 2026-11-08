@@ -1,7 +1,7 @@
 # Technical Specification: `scripts/analyze_amr.py`
 
-> **Note for AI Coding Assistants (Cursor, Copilot, Antigravity, Claude Code):**  
-> Implement `scripts/analyze_amr.py` strictly according to this document. The automated test suite `scripts/test_analyze.py` contains pre-written integration tests that validate this exact specification. When you finish, run `pytest scripts/test_analyze.py` to confirm that all tests pass.
+> **Developer Implementation Guidelines:**  
+> This specification defines the interface and data processing contract for `scripts/analyze_amr.py`. The automated test suite `scripts/test_analyze.py` contains pre-written integration tests that validate this exact specification. Once the implementation is complete, run `pytest scripts/test_analyze.py` to confirm that all tests pass.
 
 ---
 
@@ -101,3 +101,4 @@ Expected result:
 scripts/test_analyze.py ..                                              [100%]
 ============================== 2 passed in 0.45s ==============================
 ```
+
