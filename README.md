@@ -30,7 +30,7 @@ Le pipeline a pour objectif d'analyser la prévalence et la co-occurrence des g�
 ```text
 .
 ├── .gitattributes          # Normalisation des fins de ligne (LF pour les scripts bash)
-├── .gitignore              # Exclusion des données brutes (>800 Mo), logs et caches
+├── .gitignore              # Exclusion des données brutes (>100 Mo), logs et caches
 ├── README.md               # Présentation, mode d'emploi et architecture
 ├── SOURCES.md              # Origine, identifiant, URL et date des données
 ├── LIEN_GIT.txt            # URL du dépôt et hash du commit final évalué
