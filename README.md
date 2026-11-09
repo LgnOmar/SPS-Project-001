@@ -82,6 +82,14 @@ chmod +x run.sh
 ./run.sh
 ```
 
+Le filtrage Unix peut aussi être lancé indépendamment :
+```bash
+chmod +x scripts/filter_motifs.sh
+./scripts/filter_motifs.sh \
+  -i data/PDG000000002.1697.amr.metadata.tsv \
+  -o results/filtered_amr.tsv
+```
+
 ---
 
 ## 🧪 Tests Automatisés
@@ -89,4 +97,3 @@ Pour vérifier le bon fonctionnement des traitements statistiques :
 ```bash
 pytest scripts/test_analyze.py
 ```
-
