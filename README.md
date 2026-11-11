@@ -97,3 +97,8 @@ Pour vérifier le bon fonctionnement des traitements statistiques :
 ```bash
 pytest scripts/test_analyze.py
 ```
+
+---
+
+## ⏰ Automatisation & Tâche Planifiée (Cron)
+La planification hebdomadaire est documentée dans `cron/crontab.sample`. Elle lance le pipeline chaque dimanche à 02:00 et conserve la sortie dans un journal daté sous `logs/`.
