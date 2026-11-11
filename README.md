@@ -92,6 +92,20 @@ chmod +x scripts/filter_motifs.sh
 
 ---
 
+## 📊 Description des Fichiers Produits
+L'exécution de `./run.sh` génère l'ensemble des résultats de manière autonome dans le répertoire `results/` et les journaux d'audit dans `logs/` :
+
+| Fichier produit | Format | Description du contenu |
+| :--- | :---: | :--- |
+| `results/filtered_amr.tsv` | TSV | Données filtrées par les tubes Unix contenant les **9 421 isolats multi-résistants (MDR)** présentant le motif biologique ciblé (co-occurrence de gènes de résistance aux bêta-lactamines et aux aminoglycosides/quinolones). Colonnes : `epi_type`, `isolation_source`, `serovar`, `AMR_genotypes`. |
+| `results/amr_summary.csv` | CSV | Tableau statistique synthétique des gènes de résistance, indiquant pour chaque gène le nombre d'isolats porteurs, la fréquence globale (%), ainsi que la répartition détaillée entre isolats cliniques (`clinical`) et environnementaux/alimentaires (`environmental`). |
+| `results/amr_source_comparison.csv` | CSV | Table de contingence croisée (crosstab) dénombrant la présence de chaque gène AMR selon la catégorie épidémiologique d'origine. |
+| `results/amr_frequency_plot.png` | PNG | Graphique en barres horizontales (haute résolution, 300 DPI) visualisant le top 15 des gènes de résistance les plus prévalents dans les isolats filtrés de *Salmonella*. |
+| `results/archive_YYYYMMDD_HHMMSS.tar.gz` | TAR.GZ | Archive compressée et horodatée regroupant automatiquement l'ensemble des fichiers de résultats produits lors de l'exécution (critère d'archivage du barème). |
+| `logs/pipeline_YYYYMMDD_HHMMSS.log` | LOG | Journal complet horodaté consignant chaque étape de l'exécution, les vérifications d'intégrité SHA-256 et les métriques de traitement. |
+
+---
+
 ## 🧪 Tests Automatisés
 Pour vérifier le bon fonctionnement des traitements statistiques :
 ```bash
