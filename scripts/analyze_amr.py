@@ -38,15 +38,15 @@ def extract_genes(value):
 def classify_source(row):
     """Classify isolates based on NCBI epidemiological metadata."""
 
-    epi_type = str(row["epi_type"]).strip().lower()
+    epi_type = str(row.get("epi_type", "")).strip().lower()
 
-    if epi_type == "clinical":
-        return "Clinical"
+    if "clinical" in epi_type:
+        return "clinical"
 
-    if epi_type == "environmental/other":
-        return "Environmental/Other"
+    if "environmental" in epi_type:
+        return "environmental"
 
-    return "Unknown"
+    return "other"
 
 
 
@@ -56,10 +56,7 @@ def analyze_data(input_path, output_dir):
 
     df = pd.read_csv(input_path, sep="\t", dtype=str)
 
-    required = {
-        "epi_type", "isolation_source",
-        "serovar", "AMR_genotypes"
-    }
+    required = {"epi_type", "AMR_genotypes"}
 
     missing = required - set(df.columns)
     if missing:
@@ -86,13 +83,17 @@ def analyze_data(input_path, output_dir):
         ).round(2)
     })
 
-    summary.to_csv(output_dir / "amr_summary.csv", index=False)
-
     # Compare the genes by source category.
     comparison = pd.crosstab(
         exploded["genes"], exploded["category"]
     )
     comparison.to_csv(output_dir / "amr_source_comparison.csv")
+
+    # Merge category breakdowns into the main summary CSV
+    merged_summary = summary.merge(
+        comparison, left_on="gene", right_index=True, how="left"
+    ).fillna(0)
+    merged_summary.to_csv(output_dir / "amr_summary.csv", index=False)
 
     # Generate the frequency plot.
     top_genes = summary.head(15)
