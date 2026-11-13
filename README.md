@@ -34,6 +34,7 @@ Le pipeline a pour objectif d'analyser la prévalence et la co-occurrence des g�
 ├── README.md               # Présentation, mode d'emploi et architecture
 ├── SOURCES.md              # Origine, identifiant, URL et date des données
 ├── LIEN_GIT.txt            # URL du dépôt et hash du commit final évalué
+├── rapport.pdf             # Rapport académique officiel (strictement 4 pages)
 ├── run.sh                  # Script maître automatisant l'ensemble du pipeline
 ├── requirements.txt        # Dépendances Python pour virtualenv / pip
 ├── environment.yml         # Spécification d'environnement Conda
@@ -41,7 +42,8 @@ Le pipeline a pour objectif d'analyser la prévalence et la co-occurrence des g�
 │   ├── download_and_verify.sh  # Téléchargement et vérification sha256
 │   ├── filter_motifs.sh        # Tube Unix de filtrage et recherche de motif
 │   ├── analyze_amr.py          # Analyse statistique et tracé Python
-│   └── test_analyze.py         # Tests unitaires automatisés
+│   ├── test_analyze.py         # Tests unitaires automatisés
+│   └── generate_report.py      # Générateur automatisé du rapport PDF (ReportLab)
 ├── cron/                   # Tâches planifiées
 │   └── crontab.sample          # Exemple de planification périodique documentée
 ├── data/                   # Données brutes téléchargées (généré, ignoré par Git)
@@ -97,6 +99,7 @@ L'exécution de `./run.sh` génère l'ensemble des résultats de manière autono
 
 | Fichier produit | Format | Description du contenu |
 | :--- | :---: | :--- |
+| `rapport.pdf` | PDF | Rapport académique officiel de 4 pages strictes détaillant le contexte médical, les données WGS, la définition du motif MDR, les résultats chiffrés et la discussion critique. |
 | `results/filtered_amr.tsv` | TSV | Données filtrées par les tubes Unix contenant les **9 421 isolats multi-résistants (MDR)** présentant le motif biologique ciblé (co-occurrence de gènes de résistance aux bêta-lactamines et aux aminoglycosides/quinolones). Colonnes : `epi_type`, `isolation_source`, `serovar`, `AMR_genotypes`. |
 | `results/amr_summary.csv` | CSV | Tableau statistique synthétique des gènes de résistance, indiquant pour chaque gène le nombre d'isolats porteurs, la fréquence globale (%), ainsi que la répartition détaillée entre isolats cliniques (`clinical`) et environnementaux/alimentaires (`environmental`). |
 | `results/amr_source_comparison.csv` | CSV | Table de contingence croisée (crosstab) dénombrant la présence de chaque gène AMR selon la catégorie épidémiologique d'origine. |

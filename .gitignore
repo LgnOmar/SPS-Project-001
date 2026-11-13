@@ -13,8 +13,8 @@ data/
 *.bam
 *.sam
 
-# Results archives and temporary files
-results/archive_*.tar.gz
+# Results archives, generated tables/plots, and temporary files
+results/
 tmp/
 temp/
 *.tmp
