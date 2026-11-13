@@ -4,6 +4,6 @@ https://github.com/LgnOmar/SPS-Project-001.git
 Branche évaluée :
 main
 
-Hash du commit final (à renseigner avant la remise finale) :
-[COMMIT_HASH]
+Hash du commit final (seul ce commit est évalué) :
+304539fff076c43315b26535d295c912795a83d7
 
