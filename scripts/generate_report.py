@@ -3,7 +3,7 @@
 Script de génération du rapport académique officiel « Enquête sur une maladie »
 Projet : Analyse génomique de la multi-résistance aux antibiotiques (AMR) chez Salmonella enterica
 Format : PDF académique de 4 pages strictes (A4).
-Auteurs : LAGGOUNE Ahmed Amar, HECHAM Idriss, BOUABDELLI Mohamed, BOUCHENE Zakaria, FARTAS Nadir.
+Auteurs : BOUCHENE Zakaria, HECHAM Idriss, LAGGOUNE Ahmed Amar, BOUABDELLI Mohamed, FARTAS Nadir.
 """
 
 import os
@@ -44,7 +44,7 @@ class NumberedCanvas(canvas.Canvas):
         # --- PIED DE PAGE (Toutes les pages) ---
         self.setFont('Helvetica', 7.5)
         self.setFillColor(colors.HexColor('#475569'))
-        footer_text = "LAGGOUNE A.A. (Lead) · HECHAM I. (Délégué) · BOUABDELLI M. · BOUCHENE Z. · FARTAS N. — Projet « Enquête sur une maladie »"
+        footer_text = "BOUCHENE Z. · HECHAM I. · LAGGOUNE A.A. · BOUABDELLI M. · FARTAS N. — Projet « Enquête sur une maladie »"
         self.drawString(margin_x, 20, footer_text)
         page_str = f"Page {self._pageNumber} sur {total_pages}"
         self.drawRightString(page_w - margin_x, 20, page_str)
@@ -208,17 +208,17 @@ def build_pdf(filename=None):
     # =========================================================================
     # PAGE 1 : INTRODUCTION, CONTEXTE ÉPIDÉMIOLOGIQUE & QUESTION BIOLOGIQUE
     # =========================================================================
-    story.append(Paragraph("UNIVERSITÉ — MASTER BIOINFORMATIQUE & SYSTÈMES · PROJET « ENQUÊTE SUR UNE MALADIE »", style_top_kicker))
+    story.append(Paragraph("USTHB — SYSTÈME ET PROGRAMMATION DE SCRIPT · PROJET « ENQUÊTE SUR UNE MALADIE »", style_top_kicker))
     story.append(Paragraph("Enquête Génomique sur l'Antibiorésistance chez <i>Salmonella enterica</i>", style_title))
     story.append(Paragraph("Pipeline bioinformatique reproductible pour l'identification et la caractérisation des profils de multi-résistance (MDR)", style_subtitle))
     
     meta_data = [
         [
             Paragraph("<b>Composition du Groupe :</b><br/>"
-                      "• <b>LAGGOUNE Ahmed Amar</b> (Lead Integrator & Dépôt Git)<br/>"
-                      "• <b>HECHAM Idriss</b> (Délégué de groupe & Traitement Unix)<br/>"
-                      "• <b>BOUABDELLI Mohamed</b> (Acquisition & Intégrité des données)<br/>"
                       "• <b>BOUCHENE Zakaria</b> (Analyses Statistiques Python & Tracé)<br/>"
+                      "• <b>HECHAM Idriss</b> (Délégué de groupe & Traitement Unix)<br/>"
+                      "• <b>LAGGOUNE Ahmed Amar</b> (Lead Integrator & Dépôt Git)<br/>"
+                      "• <b>BOUABDELLI Mohamed</b> (Acquisition & Intégrité des données)<br/>"
                       "• <b>FARTAS Nadir</b> (Automatisation, Tests & Planification)", style_callout),
             Paragraph("<b>Spécifications d'Évaluation :</b><br/>"
                       "• <b>Dépôt Git :</b> <code>https://github.com/LgnOmar/SPS-Project-001.git</code><br/>"
@@ -602,3 +602,4 @@ def build_pdf(filename=None):
 if __name__ == '__main__':
     out = sys.argv[1] if len(sys.argv) > 1 else None
     build_pdf(out)
+
